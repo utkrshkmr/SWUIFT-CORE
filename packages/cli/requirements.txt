@@ -1,0 +1,9 @@
+numpy
+scipy
+h5py
+numba
+matplotlib
+imageio[ffmpeg]
+tqdm
+pytest
+av

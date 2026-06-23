@@ -1,0 +1,12 @@
+-e ../../packages/core
+numpy
+scipy
+h5py
+matplotlib
+imageio[ffmpeg]
+tqdm
+av
+numba
+PySide6>=6.6
+pyinstaller>=6.0
+Pillow

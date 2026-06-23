@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swuift-core"
+version = "1.0.0"
+description = "Shared SWUIFT physics core (kernels, spread, hardening)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "numba",
+  "scipy",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["swuift_core*"]
