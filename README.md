@@ -270,6 +270,6 @@ pyinstaller swuift_app.spec --noconfirm
 
 ---
 
-## Access Notice
+## License
 
-SWUIFT is jointly created by X-Lab, CSE and Khorasani Research Group, CSEE. Usage is strictly limited to the two groups. To share externally, request permission from Prof. Khorasani and/or Prof. Xiong.
+SWUIFT is distributed under the [SWUIFT Research and Academic Use License](LICENSE) (University at Buffalo). Non-commercial research, educational, and governmental use is permitted as described in the license. Commercial use requires a separate written agreement from the University at Buffalo — contact Prof. Negar Elhami-Khorasani (`negarkho@buffalo.edu`).

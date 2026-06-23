@@ -348,6 +348,6 @@ For a graphical interface, see [MANUAL.md](MANUAL.md).
 
 ---
 
-## Access Notice
+## License
 
-SWUIFT CLI is jointly created by X-Lab, CSE and Khorasani Research Group, CSEE. Usage is strictly limited to the two groups. To share externally, request permission from Prof. Khorasani and/or Prof. Xiong.
+See the [SWUIFT Research and Academic Use License](../../LICENSE) at the repository root. Commercial licensing inquiries: Prof. Negar Elhami-Khorasani, `negarkho@buffalo.edu`.

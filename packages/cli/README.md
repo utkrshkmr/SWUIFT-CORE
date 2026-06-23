@@ -1,4 +1,6 @@
 > **Canonical CLI manual:** see [CLI_MANUAL.md](../../CLI_MANUAL.md) at the repo root.
+>
+> **License:** [SWUIFT Research and Academic Use License](../../LICENSE) — University at Buffalo. Commercial inquiries: Prof. Negar Elhami-Khorasani, `negarkho@buffalo.edu`.
 
 ![SWUIFT Banner](./SWUIFT%20LOGO.png)
 

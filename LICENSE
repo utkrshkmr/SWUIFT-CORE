@@ -1,21 +1,88 @@
-MIT License
+SWUIFT Research and Academic Use License
 
-Copyright (c) 2026 Utkarsh Kumar
+Copyright © 2026-present The University at Buffalo, State University of New York.
+All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any academic institution,
+government agency, researcher, educator, or student to use, reproduce, modify,
+and distribute the SWUIFT (Streamlined Wildland-Urban Interface Fire Tracing)
+software, including source code and executable versions, solely for
+non-commercial research, educational, and governmental purposes, subject to
+the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Redistributions of source code must retain this copyright notice, license
+   text, and disclaimer.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+2. Redistributions in binary or executable form must reproduce this copyright
+   notice, license text, and disclaimer in the accompanying documentation
+   and/or other materials provided with the distribution.
+
+3. Any publications, presentations, reports, theses, dissertations, software
+   releases, or other works resulting from the use of SWUIFT shall
+   appropriately acknowledge and cite the software using the following
+   reference:
+
+   [in the process of creating a DOI]
+
+4. Modifications and derivative works may be created, used, and redistributed
+   for non-commercial research, educational, and governmental purposes,
+   provided that any modifications are clearly identified and documented and
+   that this license and disclaimer remain attached to the derivative work.
+
+5. Contributors retain copyright to their own modifications and derivative
+   works. Contributions submitted for inclusion in the official SWUIFT
+   repository may be subject to additional contributor terms established by
+   the University at Buffalo.
+
+6. Neither the name of the University at Buffalo, the State University of
+   New York, nor the names of the software contributors may be used to endorse
+   or promote products or services derived from this software without specific
+   prior written permission.
+
+7. Commercial use, including but not limited to commercial redistribution,
+   incorporation into commercial products or services, consulting activities
+   performed for compensation, operational decision-support systems, contract
+   research conducted for commercial entities, or any other revenue-generating
+   or for-profit use of SWUIFT, is prohibited without a separate written
+   license agreement from the University at Buffalo. For commercial licensing
+   inquiries, contact:
+
+   Negar Elhami-Khorasani
+   Associate Professor
+   University at Buffalo
+   Civil, Structural & Environmental Engineering
+   136 Ketter Hall
+   Buffalo, NY 14260
+   716-645-3019
+   negarkho@buffalo.edu
+
+8. The University at Buffalo retains all intellectual property rights in
+   SWUIFT and reserves the right to distribute, modify, and license the
+   software under different terms, including commercial licenses.
+
+DISCLAIMER
+
+THIS SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+UNIVERSITY AT BUFFALO, THE AUTHORS, OR THE CONTRIBUTORS BE LIABLE FOR ANY
+CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR
+OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR ITS
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+ACKNOWLEDGMENT
+
+SWUIFT is developed by the Khorasani Research Group, Department of Civil,
+Structural and Environmental Engineering, University at Buffalo, and X-Lab,
+Department of Computer Science and Engineering, University at Buffalo.
+
+Primary contact:
+
+Negar Elhami-Khorasani
+Associate Professor
+University at Buffalo
+Civil, Structural & Environmental Engineering
+136 Ketter Hall
+Buffalo, NY 14260
+716-645-3019
+negarkho@buffalo.edu
