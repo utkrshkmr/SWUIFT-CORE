@@ -5,12 +5,6 @@ This manual explains how to verify SWUIFT CLI outputs against MATLAB outputs for
 The verification pipeline:
 
 - Runs only MATLAB and CLI, not the desktop app.
-- Does not edit the original MATLAB source in `reference/matlab/`.
-- Does not edit `packages/core/`.
-- Generates temporary MATLAB wrapper files inside each verification run folder.
-- Compares every available timestep and keeps going after differences are found.
-- Keeps ignition plots for visual comparison.
-- Does not generate per-timestep frames, video, or GIF files.
 
 ## What You Need
 
@@ -129,9 +123,30 @@ fires:
     brand_wind_sd_lat: 4.85
     seed_harden: 123456
     seed_spread: 10
+
+  # Example only: repeat the block for another fire.
+  # Make sure `name`, `cli_data`, and `matlab_data` match the actual input folders.
+  # Here `eaton2` uses the same input folders as `eaton` but changes one parameter.
+  - name: eaton2
+    cli_data: data/eaton
+    matlab_data: matlab_data/eaton
+    t_start: "2025-01-07 18:20"
+    t_end: "2025-01-08 14:20"
+    grid_size: 10
+    harden_rad: 70.0
+    harden_spo: 70.0
+    rad_ig_thresh: 14500.0
+    rad_decay: 1.0
+    brand_wind_coef: 30.0
+    brand_wind_sd: 0.3
+    brand_wind_sd_lat: 4.85
+    seed_harden: 123456
+    seed_spread: 10
 ```
 
 Add one item under `fires:` for each fire.
+
+Before running, double-check that each fire `name` corresponds to the intended CLI and MATLAB input folders. For example, if `name: marshall`, the paths should point to the Marshall input folders, not to Eaton inputs.
 
 If a hyperparameter is omitted, the verification runner uses the current SWUIFT defaults. For clarity, keep all values explicit when you are preparing an official verification package.
 
@@ -240,7 +255,7 @@ python tools/compare/verify_cli_matlab.py --cases verification_cases.yaml --fire
 Run multiple named fires:
 
 ```bash
-python tools/compare/verify_cli_matlab.py --cases verification_cases.yaml --fires eaton palisades
+python tools/compare/verify_cli_matlab.py --cases verification_cases.yaml --fires eaton marshall
 ```
 
 Use compact binary CLI timestep dumps, which is the default:
