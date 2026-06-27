@@ -152,7 +152,7 @@ Python implementations target numerical parity with this reference. Known differ
 
 | Script | Role |
 |--------|------|
-| `compare_suite.py` | Unified presets: `smoke10`, `smoke15`, `full` |
+| `compare_suite.py` | Unified presets: `smoke10`, `full` |
 | `orchestrator.py` | Stage orchestration, frame-state normalization |
 | `compare_frame_states.py` | Pairwise `int16` frame-state comparison |
 | `stitch_video.py` | Tri-panel MP4 (MATLAB \| APP \| CLI) at 1080p |
@@ -212,7 +212,7 @@ To generate `extracted_mat/` from raw bundles, run `python data/extract_inputs_t
 cd tools/compare
 python orchestrator.py check-matlab
 python orchestrator.py check-defaults
-python compare_suite.py --preset smoke15 --stages app cli
+python compare_suite.py --preset smoke10 --stages app
 python compare_suite.py --preset full   # runtime + 1080p stitch by default
 ```
 

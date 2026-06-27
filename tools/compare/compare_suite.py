@@ -82,13 +82,6 @@ PRESETS: dict[str, PresetConfig] = {
         run_root_name="smoke_10",
         smoke=True,
     ),
-    "smoke15": PresetConfig(
-        name="smoke15",
-        steps=15,
-        default_stages=("app", "cli"),
-        run_root_name="smoke_15",
-        smoke=True,
-    ),
     "full": PresetConfig(
         name="full",
         steps=None,
@@ -738,9 +731,9 @@ def main(argv: list[str] | None = None) -> int:
     add_data_path_arguments(parser)
     parser.add_argument(
         "--preset",
-        choices=[*PRESETS.keys(), "all"],
+        choices=PRESETS.keys(),
         required=True,
-        help="Comparison preset: smoke10, smoke15, full, or all (smoke10 then smoke15).",
+        help="Comparison preset: smoke10 or full.",
     )
     parser.add_argument(
         "--stages",
@@ -784,7 +777,7 @@ def main(argv: list[str] | None = None) -> int:
     print("Data roots:", json.dumps(data_roots_summary(), indent=2))
 
     matlab_run_root = args.matlab_baseline_run_root.resolve()
-    preset_names = ["smoke10", "smoke15"] if args.preset == "all" else [args.preset]
+    preset_names = [args.preset]
     exit_code = 0
 
     for preset_name in preset_names:

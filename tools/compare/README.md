@@ -55,12 +55,6 @@ python3 orchestrator.py check-defaults
 # Fast 10-step app parity check
 python3 compare_suite.py --preset smoke10
 
-# 15-step app + CLI check
-python3 compare_suite.py --preset smoke15
-
-# Run both smoke presets in sequence
-python3 compare_suite.py --preset all
-
 # Full 241-step comparison with runtime metrics and 1080p tri-panel video
 python3 compare_suite.py --preset full
 python3 compare_suite.py --preset full --no-stitch   # skip video stitching
@@ -72,8 +66,8 @@ The `full` preset runs fresh MATLAB (when installed), app, and CLI. It always wr
 Run only selected stages:
 
 ```bash
-python3 compare_suite.py --preset smoke15 --stages app cli
 python3 compare_suite.py --preset smoke10 --stages matlab_baseline app
+python3 compare_suite.py --preset full --stages matlab_baseline cli
 ```
 
 1080p stitching uses auto-calculated frame DPI (`108` for 12×10 inch figures at 1080px height) and writes `comparison_1080p.mp4` under the run root.
@@ -107,5 +101,5 @@ python3 orchestrator.py run --stages app cli --matlab-baseline-run-root runs/202
 Compare any run root against the saved MATLAB baseline:
 
 ```bash
-python3 compare_frame_states.py runs/smoke_15 --matlab-run-root runs/20260602_162114
+python3 compare_frame_states.py runs/smoke_10 --matlab-run-root runs/20260602_162114
 ```

@@ -29,7 +29,7 @@ doe-wildfire/
 
 `tools/compare/compare_suite.py` orchestrates smoke and full presets:
 
-- **smoke10 / smoke15** — short parity checks against copied MATLAB baseline
+- **smoke10** — short parity check against copied MATLAB baseline
 - **full** — fresh MATLAB (if installed), app, and CLI runs with runtime comparison and 1080p video stitching
 
 Stage output directories under each run use role-based names: `matlab/`, `app/`, `cli/`.

@@ -205,7 +205,7 @@ Example JSON shape:
 }
 ```
 
-Smoke presets (`smoke10`, `smoke15`) remain lightweight: no stitch, no fresh MATLAB unless explicitly requested.
+Smoke preset `smoke10` remains lightweight: no stitch, no fresh MATLAB unless explicitly requested.
 
 ---
 
@@ -260,7 +260,7 @@ Workflow updates:
 | `pytest tests/unit/` | **Passed** (22/22) after reinstall |
 | `pip install -e packages/core && pip install -e packages/cli` | **Done** |
 | App import (`from swuift.simulation import run_simulation`) | **OK** with venv Python |
-| `compare_suite.py --preset smoke15` | **Blocked** — default baseline run `runs/20260602_162114` missing on this machine; legacy baseline exists at `runs/20260608_150939` |
+| `compare_suite.py --preset smoke10` | **Blocked** — default baseline run `runs/20260602_162114` missing on this machine; legacy baseline exists at `runs/20260608_150939` |
 | `compare_suite.py --preset full --stitch-1080p` | **Not run** (requires MATLAB + long runtime) |
 | PyInstaller dry-run / CI build | **Not run yet** |
 
@@ -283,7 +283,7 @@ pytest tests/unit/
 
 # Smoke comparison (use available baseline if default missing)
 cd tools/compare
-python compare_suite.py --preset smoke15 --stages app cli \
+python compare_suite.py --preset smoke10 --stages app \
   --matlab-baseline-run-root runs/20260608_150939
 
 # Full comparison with runtime + 1080p video
