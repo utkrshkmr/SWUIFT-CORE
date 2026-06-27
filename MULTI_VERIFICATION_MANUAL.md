@@ -22,6 +22,59 @@ You need:
 - One CLI data folder per fire.
 - One MATLAB data folder per fire.
 
+## Get The Repository
+
+If this is the first time using the project on a machine, clone the repository and enter the verification branch:
+
+### Linux / macOS
+
+```bash
+cd /path/where/you/want/the/project
+git clone https://github.com/utkrshkmr/SWUIFT-CORE.git
+cd SWUIFT-CORE/doe-wildfire
+git checkout multi_verification_wiring
+git pull
+```
+
+### Windows PowerShell
+
+```powershell
+cd C:\path\where\you\want\the\project
+git clone https://github.com/utkrshkmr/SWUIFT-CORE.git
+cd SWUIFT-CORE\doe-wildfire
+git checkout multi_verification_wiring
+git pull
+```
+
+If the repository already exists on the machine, go to the repo folder and pull the latest changes:
+
+### Linux / macOS
+
+```bash
+cd /path/to/SWUIFT-CORE/doe-wildfire
+git checkout multi_verification_wiring
+git pull
+```
+
+### Windows PowerShell
+
+```powershell
+cd C:\path\to\SWUIFT-CORE\doe-wildfire
+git checkout multi_verification_wiring
+git pull
+```
+
+After making documentation or code changes, push them back to the branch:
+
+```bash
+git status
+git add <changed-files>
+git commit -m "Describe the change"
+git push
+```
+
+Do not commit large simulation outputs or local data folders. Verification outputs under `tools/compare/runs/` are ignored by git.
+
 ## Folder Layout
 
 Create one folder for CLI data named `data`. Under it, create one folder per fire. MATLAB data should also be organized one folder per fire; this manual uses `matlab_data` for that side.
