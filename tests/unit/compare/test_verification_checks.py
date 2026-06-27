@@ -22,7 +22,12 @@ from verification_checks import (  # noqa: E402
     required_file_report,
     summarize_step_stats,
 )
-from verify_cli_matlab import build_cli_command, compare_step_dumps  # noqa: E402
+from verify_cli_matlab import (  # noqa: E402
+    DEFAULT_VARIABLES,
+    build_cli_command,
+    compare_step_dumps,
+    comparison_variables,
+)
 
 
 def test_load_case_manifest_simple_yaml(tmp_path):
@@ -136,3 +141,11 @@ def test_build_cli_command_uses_low_output_defaults(tmp_path):
     assert "--out-ig-plots" in cmd
     assert "--no-dump-csv" in cmd
     assert "--lazy-wind" in cmd
+
+
+def test_comparison_variables_always_include_required_defaults():
+    variables = comparison_variables("fire,custom_debug")
+
+    assert variables[: len(DEFAULT_VARIABLES)] == DEFAULT_VARIABLES
+    assert variables.count("fire") == 1
+    assert "custom_debug" in variables

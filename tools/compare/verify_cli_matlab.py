@@ -558,13 +558,30 @@ def selected_cases(cases: list[FireCase], names: list[str]) -> list[FireCase]:
     return selected
 
 
+def comparison_variables(extra_variables: str | None = None) -> tuple[str, ...]:
+    """Return required variables plus any additional requested variables."""
+    variables = list(DEFAULT_VARIABLES)
+    for item in (extra_variables or "").split(","):
+        variable = item.strip()
+        if variable and variable not in variables:
+            variables.append(variable)
+    return tuple(variables)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--cases", type=Path, required=True, help="JSON or simple YAML fire-case manifest.")
     parser.add_argument("--fires", nargs="+", default=["all"], help="Fire case names to run, or 'all'.")
     parser.add_argument("--run-root", type=Path, help="Output root. Defaults to tools/compare/runs/verification_TIMESTAMP.")
     parser.add_argument("--matlab-exe", help="Explicit MATLAB executable path.")
-    parser.add_argument("--variables", default=",".join(DEFAULT_VARIABLES), help="Comma-separated step dump variables to compare.")
+    parser.add_argument(
+        "--extra-variables",
+        help=(
+            "Comma-separated additional step dump variables to compare. "
+            "The required verification variables are always included: "
+            + ", ".join(DEFAULT_VARIABLES)
+        ),
+    )
     parser.add_argument("--sample-mismatches", type=int, default=5, help="Number of mismatched coordinates to sample per variable/step.")
     parser.add_argument("--dump-csv", action="store_true", help="Ask CLI to dump CSV instead of compact .npy step files.")
     parser.add_argument("--lazy-wind", action="store_true", help="Use lazy wind loading for CLI to reduce RAM.")
@@ -573,7 +590,7 @@ def main(argv: list[str] | None = None) -> int:
     cases = selected_cases(load_case_manifest(args.cases.resolve()), args.fires)
     run_root = args.run_root.resolve() if args.run_root else DEFAULT_RUNS_DIR / f"verification_{_timestamp()}"
     run_root.mkdir(parents=True, exist_ok=True)
-    variables = tuple(item.strip() for item in args.variables.split(",") if item.strip())
+    variables = comparison_variables(args.extra_variables)
     write_json(
         run_root / "run_manifest.json",
         {

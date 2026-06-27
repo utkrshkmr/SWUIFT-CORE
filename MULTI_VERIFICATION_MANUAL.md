@@ -413,30 +413,6 @@ This folder stores ignition plots from both implementations:
 
 Video, GIF, and per-timestep frames are intentionally not generated. Ignition plots are kept because they are compact and useful for visual review.
 
-## Disk Size Guidance
-
-Smallest useful output:
-
-```bash
-python tools/compare/verify_cli_matlab.py --cases verification_cases.yaml --fires all
-```
-
-This keeps:
-
-- Per-step numeric dumps required for verification.
-- Structured comparison files.
-- Ignition plots.
-
-It skips:
-
-- Per-timestep PNG frames.
-- MP4 videos.
-- GIF animations.
-- Optional per-step radiation CSVs.
-- Optional per-step spotting CSVs.
-
-Use `--dump-csv` only when reviewers need human-readable per-step files. CSV dumps are much larger than `.npy` files.
-
 ## Troubleshooting
 
 ### MATLAB is not found
