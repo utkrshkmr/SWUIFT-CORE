@@ -2,11 +2,25 @@
 
 This manual explains how to verify SWUIFT CLI outputs against MATLAB outputs for one or more fires. 
 
-The verification pipeline:
+The verification pipeline runs only MATLAB and CLI, not the desktop app.
 
-- Runs only MATLAB and CLI, not the desktop app.
+## Contents
 
-## What You Need
+1. [Before You Start](#1-before-you-start)
+2. [Get The Repository](#2-get-the-repository)
+3. [Prepare Input Data](#3-prepare-input-data)
+4. [Create The Fire Case Manifest](#4-create-the-fire-case-manifest)
+5. [Set Up Python](#5-set-up-python)
+6. [Install And Check MATLAB](#6-install-and-check-matlab)
+7. [Run Verification](#7-run-verification)
+8. [Find The Outputs](#8-find-the-outputs)
+9. [Read The Checks](#9-read-the-checks)
+10. [Troubleshooting](#10-troubleshooting)
+11. [Cleanup](#11-cleanup)
+
+---
+
+## 1. Before You Start
 
 You need:
 
@@ -16,7 +30,9 @@ You need:
 - One CLI data folder per fire.
 - One MATLAB data folder per fire.
 
-## Get The Repository
+---
+
+## 2. Get The Repository
 
 If this is the first time using the project on a machine, clone the repository and enter the verification branch:
 
@@ -69,7 +85,11 @@ git push
 
 Do not commit large simulation outputs or local data folders. Verification outputs under `tools/compare/runs/` are ignored by git.
 
-## Folder Layout
+---
+
+## 3. Prepare Input Data
+
+### Folder Layout
 
 Create one folder for CLI data named `data`. Under it, create one folder per fire. MATLAB data should also be organized one folder per fire; this manual uses `matlab_data` for that side.
 
@@ -102,7 +122,18 @@ matlab_data/
 
 The CLI and MATLAB inputs are intentionally separate because their file formats are different. The verification pipeline checks that their contents are comparable before running the simulations.
 
-## Create The Case Manifest
+### Naming Checklist
+
+Before writing the manifest, verify:
+
+- The fire name in the manifest is the name you want to type in `--fires`.
+- The `cli_data` folder points to the CLI input folder for that same fire.
+- The `matlab_data` folder points to the MATLAB input folder for that same fire.
+- Each folder contains the required files shown above.
+
+---
+
+## 4. Create The Fire Case Manifest
 
 Create `verification_cases.yaml` in the repository root:
 
@@ -150,7 +181,11 @@ Before running, double-check that each fire `name` corresponds to the intended C
 
 If a hyperparameter is omitted, the verification runner uses the current SWUIFT defaults. For clarity, keep all values explicit when you are preparing an official verification package.
 
-## Set Up Python
+---
+
+## 5. Set Up Python
+
+Run these commands from the verification branch checkout.
 
 ### Linux
 
@@ -182,7 +217,9 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## Install And Check MATLAB
+---
+
+## 6. Install And Check MATLAB
 
 Download MATLAB from the MathWorks website:
 
@@ -238,7 +275,11 @@ python tools\compare\verify_cli_matlab.py --cases verification_cases.yaml --matl
 
 Change `R2024b` to the version installed on the machine.
 
-## Run Verification
+---
+
+## 7. Run Verification
+
+Use this section after Python is set up, MATLAB is available, the data folders exist, and `verification_cases.yaml` is ready.
 
 Run all fires:
 
@@ -276,7 +317,9 @@ Use lazy wind loading if memory is limited:
 python tools/compare/verify_cli_matlab.py --cases verification_cases.yaml --fires all --lazy-wind
 ```
 
-## What The Runner Produces
+---
+
+## 8. Find The Outputs
 
 Outputs are written under:
 
@@ -315,7 +358,20 @@ fire_name/
     └── first_deviations.json
 ```
 
-## How To Read The Checks
+---
+
+## 9. Read The Checks
+
+Read these files in this order when investigating differences:
+
+1. `preflight/problems.jsonl`
+2. `preflight/hyperparameters.json`
+3. `preflight/input_similarity.json`
+4. `comparisons/first_deviations.json`
+5. `comparisons/per_variable_summary.csv`
+6. `comparisons/per_step_stats.jsonl`
+7. `comparisons/frame_state_stats.jsonl`
+8. `ignition_plots/`
 
 ### `preflight/input_similarity.json`
 
@@ -428,7 +484,9 @@ This folder stores ignition plots from both implementations:
 
 Video, GIF, and per-timestep frames are intentionally not generated. Ignition plots are kept because they are compact and useful for visual review.
 
-## Troubleshooting
+---
+
+## 10. Troubleshooting
 
 ### MATLAB is not found
 
@@ -490,7 +548,9 @@ comparisons/per_variable_summary.csv
 
 Look for the first variable that deviates, then inspect later steps to see if the difference grows or remains small.
 
-## What Is Safe To Delete
+---
+
+## 11. Cleanup
 
 After reviewing a run, you can delete the whole run folder:
 
